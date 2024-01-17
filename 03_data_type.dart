@@ -5,4 +5,6 @@ void main() {
   print(intOutput);
   double doubleOutput = 1.5;
   print(doubleOutput);
+  String stringOutput = "text";
+  print(stringOutput);
 }
