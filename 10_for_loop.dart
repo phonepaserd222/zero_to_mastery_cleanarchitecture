@@ -8,4 +8,10 @@ void main() {
     print("list element: ${numberList[i]}");
   }
   print("second list: ${secondList}");
+  // for (int p = 1; p < 10; p++) {
+  //   if (true) {
+  //     print("what : ${p}");
+  //   }
+  // }
+  // ;
 }
