@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -117,14 +118,14 @@ class MyApp extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Builder(
-                  builder: (context) {
+                LayoutBuilder(
+                  builder: (context, constraints) {
                     return Container(
-                      color: Colors.green,
-                      width: MediaQuery.of(context).size.width,
+                      color: Colors.blue,
+                      width: 200,
                       height: 100,
                       child: const Center(
-                        child: Text("MediaQuery Example"),
+                        child: Text("Layout Builder Example"),
                       ),
                     );
                   },
