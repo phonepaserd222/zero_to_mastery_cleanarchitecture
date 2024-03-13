@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zero_to_mastery_cleanarchitecture/presentation/widgets_example/widgets_example_screen.dart';
+import 'package:zero_to_mastery_cleanarchitecture/root_bottom_navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       )),
       // open & close debug banner
       // debugShowCheckedModeBanner: false,
-      home: const WidgetScreen(),
+      home: const RootBottomNavigation(),
     );
   }
 }

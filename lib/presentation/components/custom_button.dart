@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
                 end: Alignment.centerRight,
                 colors: [Colors.yellow, Colors.green])),
         child: InkWell(
-          onTap: onTap(),
+          onTap: onTap,
           // pien sy vela kod
           splashColor: Colors.red,
           customBorder: const CircleBorder(),
@@ -51,7 +51,7 @@ class CustomButtonGesture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap(),
+      onTap: onTap,
       child: Container(
         height: 50,
         width: 100,
