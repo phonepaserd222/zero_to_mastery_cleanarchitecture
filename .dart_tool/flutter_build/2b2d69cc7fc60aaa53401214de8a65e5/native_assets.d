@@ -1,0 +1,1 @@
+ C:\\Users\\phone\\OneDrive\\Documents\\GitHub\\zero_to_mastery_cleanarchitecture\\.dart_tool\\flutter_build\\2b2d69cc7fc60aaa53401214de8a65e5\\native_assets.yaml: 
