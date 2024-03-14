@@ -73,20 +73,22 @@ class WidgetScreen extends StatelessWidget {
               //
               CustomButtonGesture(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ScreenTwo(),
-                        ));
+                    Navigator.pushNamed(context, "/screenOne");
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const ScreenTwo(),
+                    //     ));
                   },
                   text: "text"),
               CustomButton(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ScreenOne(),
-                      ));
+                  Navigator.pushNamed(context, "/screenTwo");
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => const ScreenOne(),
+                  //     ));
                 },
                 icon: Icons.home,
                 iconColor: Colors.white,

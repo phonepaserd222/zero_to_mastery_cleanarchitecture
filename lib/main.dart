@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zero_to_mastery_cleanarchitecture/presentation/navigation_example_screen/screen_one.dart';
+import 'package:zero_to_mastery_cleanarchitecture/presentation/navigation_example_screen/screen_two.dart';
 import 'package:zero_to_mastery_cleanarchitecture/root_bottom_navigation.dart';
 
 void main() {
@@ -18,6 +20,11 @@ class MyApp extends StatelessWidget {
       // open & close debug banner
       // debugShowCheckedModeBanner: false,
       home: const RootBottomNavigation(),
+      routes: <String, WidgetBuilder>{
+        "/root": (BuildContext context) => const RootBottomNavigation(),
+        "/screenOne": (BuildContext context) => const ScreenOne(),
+        "/screenTwo": (BuildContext context) => const ScreenTwo(),
+      },
     );
   }
 }
