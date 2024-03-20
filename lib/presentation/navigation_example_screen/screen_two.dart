@@ -11,7 +11,7 @@ class ScreenTwo extends StatelessWidget {
       body: Center(
         child: TextButton(
             onPressed: () {
-              Navigator.pushReplacementNamed(context, "/screenOne");
+              Navigator.pushNamed(context, "/screenOne");
             },
             child: const Text("Go Back")),
       ),

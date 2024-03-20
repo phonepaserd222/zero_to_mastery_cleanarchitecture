@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:zero_to_mastery_cleanarchitecture/application/theme_service.dart';
 import 'package:zero_to_mastery_cleanarchitecture/presentation/components/custom_button.dart';
-import 'package:zero_to_mastery_cleanarchitecture/presentation/navigation_example_screen/screen_one.dart';
-import 'package:zero_to_mastery_cleanarchitecture/presentation/navigation_example_screen/screen_two.dart';
 import 'package:zero_to_mastery_cleanarchitecture/presentation/widgets_example/widgets/button_example.dart';
 import 'package:zero_to_mastery_cleanarchitecture/presentation/widgets_example/widgets/person.dart';
 
-import 'widgets/beer_warn.dart';
-import 'widgets/boi_beer_warn.dart';
 import 'widgets/first_column.dart';
 import 'widgets/hello_world.dart';
 import 'widgets/layout_builder_example.dart';
@@ -22,96 +20,92 @@ class WidgetScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("flutter Basic"),
       ),
-      body: Container(
-        color: Colors.white,
-        // height: 200,
-        // width: 200,
-        // decoration: BoxDecoration(
-        //     color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const RowExpandedExample(),
-              const FirstColumn(),
-              const SizedBox(
-                height: 20,
-              ),
-              const HelloWorld(),
-              const SizedBox(
-                height: 20,
-              ),
-              const Person(
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const RowExpandedExample(),
+            const FirstColumn(),
+            const ButtonExample(),
+
+            const SizedBox(
+              height: 20,
+            ),
+            const HelloWorld(),
+            const SizedBox(
+              height: 20,
+            ),
+            const Person(
+              pictureUrl:
+                  "https://scontent.fvte2-1.fna.fbcdn.net/v/t39.30808-1/367432797_249094054686779_8363083864096153828_n.jpg?stp=dst-jpg_p320x320&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHFJ_q52Xk8FYGlrVtPoiQ1dR8cbW5NtMR1Hxxtbk20xJ78zDSQv8yHXr1n3nI7WsvzNuvjbHHUOdRwOElmChsw&_nc_ohc=YzYtDruY13AAX82oB6_&_nc_ht=scontent.fvte2-1.fna&oh=00_AfB1T528EFThTOogRX7nFm7MkgBguMznaLA2WaV5AMiunQ&oe=65FBE76E",
+              name: "Beerwarn",
+              age: "25",
+              country: "Laos",
+              job: "DevFont",
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Person(
                 pictureUrl:
-                    "https://scontent.futh1-1.fna.fbcdn.net/v/t39.30808-6/367432797_249094054686779_8363083864096153828_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHFJ_q52Xk8FYGlrVtPoiQ1dR8cbW5NtMR1Hxxtbk20xJ78zDSQv8yHXr1n3nI7WsvzNuvjbHHUOdRwOElmChsw&_nc_ohc=PxTSqGQPz7EAX_xc-p4&_nc_ht=scontent.futh1-1.fna&oh=00_AfCeCFAYqxUUrPq62VVT-3xwLz9KHKivD7nVnRDb7nbbvA&oe=65F3FD6C",
-                name: "Beerwarn",
-                age: "25",
-                country: "Laos",
-                job: "DevFont",
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Person(
-                  pictureUrl:
-                      "https://scontent.futh1-1.fna.fbcdn.net/v/t39.30808-6/426458602_3601813140060032_2523900165781806472_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFai8HRf8S4j8AMGr8tPdxd728NMjKabwLvbw0yMppvAmB4_GYY5cWdZcvnump_nhSaWBWHQi-jjXSPpsEqKooa&_nc_ohc=qu9Pn9CqPSsAX8dNdXv&_nc_ht=scontent.futh1-1.fna&oh=00_AfCeqe2i61AGKXWfTnkKD26BB6D5u-qKtBZYDI7gBrttTA&oe=65F35D3F",
-                  name: "Boi",
-                  age: "0.4",
-                  country: "laos",
-                  job: "king"),
-              const SizedBox(
-                height: 40,
-              ),
-              const MediaQueryExample(),
-              const SizedBox(
-                height: 40,
-              ),
-              const LayoutBuilderExample(),
-              //
-              CustomButtonGesture(
-                  onTap: () {
-                    Navigator.pushNamed(context, "/screenOne");
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const ScreenTwo(),
-                    //     ));
-                  },
-                  text: "text"),
-              CustomButton(
+                    "https://scontent.fvte2-3.fna.fbcdn.net/v/t39.30808-6/314743292_108716195391233_340563914079872296_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeH-TEfrpd8c8KtOJO4UrQuvBgT0_w7kDTkGBPT_DuQNOUhuFNBkqUf_fyaPmCW_BmIbbWYNX6LvNpRIIbBODInJ&_nc_ohc=pGiV9cLfJkIAX-XFoXa&_nc_ht=scontent.fvte2-3.fna&oh=00_AfDozgTBNB2S7ru1fjLuAXqM0A95Z3bXZX2wl5sNWfBxXQ&oe=65FD2DDA",
+                name: "Boi",
+                age: "0.4",
+                country: "laos",
+                job: "king"),
+            const SizedBox(
+              height: 40,
+            ),
+            const MediaQueryExample(),
+            const SizedBox(
+              height: 40,
+            ),
+            const LayoutBuilderExample(),
+            //
+            CustomButtonGesture(
                 onTap: () {
-                  Navigator.pushNamed(context, "/screenTwo");
+                  Navigator.pushNamed(context, "/screenOne");
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(
-                  //       builder: (context) => const ScreenOne(),
+                  //       builder: (context) => const ScreenTwo(),
                   //     ));
                 },
-                icon: Icons.home,
-                iconColor: Colors.white,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CustomButton(
-                  onTap: () {
-                    print("tapped button2");
-                  },
-                  icon: Icons.play_arrow,
-                  iconColor: Colors.blue),
-              // SizedBox(
-              //   height: 40,
-              // ),
-              const ButtonExample(),
-            ],
-          ),
+                text: "text"),
+            CustomButton(
+              onTap: () {
+                Navigator.pushNamed(context, "/screenTwo");
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const ScreenOne(),
+                //     ));
+              },
+              icon: Icons.home,
+              iconColor: Colors.white,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            CustomButton(
+                onTap: () {
+                  print("tapped button2");
+                },
+                icon: Icons.play_arrow,
+                iconColor: Colors.blue),
+            // SizedBox(
+            //   height: 40,
+            // ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => debugPrint("clicked"),
+        onPressed: () {
+          Provider.of<ThemeService>(context, listen: false).toggleTheme();
+        },
         child: const Icon(Icons.ac_unit),
       ),
     );

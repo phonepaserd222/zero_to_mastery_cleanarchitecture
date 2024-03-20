@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../application/theme_service.dart';
 
 class ButtonExample extends StatefulWidget {
   const ButtonExample({super.key});
@@ -8,7 +11,7 @@ class ButtonExample extends StatefulWidget {
 }
 
 class _ButtonExampleState extends State<ButtonExample> {
-  bool switchState = true;
+  bool switchState = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,10 +45,14 @@ class _ButtonExampleState extends State<ButtonExample> {
             },
             icon: const Icon(Icons.play_arrow)),
         Switch(
+          activeColor: Colors.green, // color switch icon  h vk
+          inactiveThumbColor: Colors.amber, // color switch icon br h vk
+          // inactiveTrackColor: Colors.red,       //color switch
           value: switchState,
           onChanged: (value) {
             setState(() {
-              // switchState = value;
+              Provider.of<ThemeService>(context, listen: false).toggleTheme();
+              switchState = value;
             });
             // switchState = value;
             print(value);
