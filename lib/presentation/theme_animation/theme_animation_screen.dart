@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:zero_to_mastery_cleanarchitecture/application/theme_service.dart';
+import 'package:zero_to_mastery_cleanarchitecture/presentation/theme_animation/widgets/sun.dart';
 
 class ThemeAnimationScreen extends StatelessWidget {
   const ThemeAnimationScreen({super.key});
@@ -26,7 +28,7 @@ class ThemeAnimationScreen extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                           color: themeService.isDarkModeOn
-                              ? Colors.black87
+                              ? Colors.black.withOpacity(0.7)
                               : Colors.grey,
                           offset: const Offset(0, 3),
                           blurRadius: 5,
@@ -50,6 +52,11 @@ class ThemeAnimationScreen extends StatelessWidget {
                   ),
                   child: Stack(
                     children: [
+                      AnimatedPadding(
+                        duration: Duration(microseconds: 200),
+                        padding: EdgeInsets.only(top: 50),
+                        child: Center(child: Sun()),
+                      ),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
