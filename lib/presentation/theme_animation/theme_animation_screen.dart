@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:zero_to_mastery_cleanarchitecture/application/theme_service.dart';
+import 'package:zero_to_mastery_cleanarchitecture/presentation/theme_animation/widgets/monn.dart';
+import 'package:zero_to_mastery_cleanarchitecture/presentation/theme_animation/widgets/star.dart';
 import 'package:zero_to_mastery_cleanarchitecture/presentation/theme_animation/widgets/sun.dart';
 
 class ThemeAnimationScreen extends StatelessWidget {
@@ -52,10 +54,61 @@ class ThemeAnimationScreen extends StatelessWidget {
                   ),
                   child: Stack(
                     children: [
+                      Positioned(
+                          top: 150,
+                          left: 60,
+                          child: AnimatedOpacity(
+                            opacity: themeService.isDarkModeOn ? 1 : 0,
+                            duration: const Duration(milliseconds: 300),
+                            child: const Star(),
+                          )),
+                      Positioned(
+                          top: 50,
+                          left: 80,
+                          child: AnimatedOpacity(
+                            opacity: themeService.isDarkModeOn ? 1 : 0,
+                            duration: const Duration(milliseconds: 300),
+                            child: const Star(),
+                          )),
+                      Positioned(
+                          top: 70,
+                          right: 50,
+                          child: AnimatedOpacity(
+                            opacity: themeService.isDarkModeOn ? 1 : 0,
+                            duration: const Duration(milliseconds: 300),
+                            child: const Star(),
+                          )),
+                      Positioned(
+                          top: 150,
+                          right: 60,
+                          child: AnimatedOpacity(
+                            opacity: themeService.isDarkModeOn ? 1 : 0,
+                            duration: const Duration(milliseconds: 300),
+                            child: const Star(),
+                          )),
+                      Positioned(
+                          top: 100,
+                          right: 200,
+                          child: AnimatedOpacity(
+                            opacity: themeService.isDarkModeOn ? 1 : 0,
+                            duration: const Duration(milliseconds: 300),
+                            child: const Star(),
+                          )),
+                      AnimatedPositioned(
+                        duration: const Duration(milliseconds: 400),
+                        top: themeService.isDarkModeOn ? 100 : 130,
+                        right: themeService.isDarkModeOn ? 100 : -40,
+                        child: AnimatedOpacity(
+                          opacity: themeService.isDarkModeOn ? 1 : 0,
+                          duration: const Duration(milliseconds: 300),
+                          child: const Moon(),
+                        ),
+                      ),
                       AnimatedPadding(
-                        duration: Duration(microseconds: 200),
-                        padding: EdgeInsets.only(top: 50),
-                        child: Center(child: Sun()),
+                        duration: const Duration(milliseconds: 200),
+                        padding: EdgeInsets.only(
+                            top: themeService.isDarkModeOn ? 110 : 50),
+                        child: const Center(child: Sun()),
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,
