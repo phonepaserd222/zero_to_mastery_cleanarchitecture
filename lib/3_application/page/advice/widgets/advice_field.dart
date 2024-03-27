@@ -3,13 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zero_to_mastery_cleanarchitecture/3_application/page/advice/advice_page.dart';
 import 'package:zero_to_mastery_cleanarchitecture/3_application/page/advice/widgets/errer_message.dart';
 
+import '../bloc/advicer_bloc.dart';
+
 class AdvicePageWrapperProvider extends StatelessWidget {
   const AdvicePageWrapperProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AdviceBloc(),
+      create: (context) => AdvicerBloc(),
       child: const AdvicePage(),
     );
   }
@@ -32,7 +34,7 @@ class AdviceField extends StatelessWidget {
         ),
         child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            child: BlocBuilder<AdviceBloc, SubjectState>(
+            child: BlocBuilder<AdvicerBloc, SubjectState>(
               builder: (context, state) {
                 return const ErrerMessage(
                     message: "ooops somethinggone wrong! ");
