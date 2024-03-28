@@ -8,9 +8,10 @@ class ErrerMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Icon(Icons.error, size: 40, color: Colors.redAccent),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Text(
           message,
           style: themeData.textTheme.displayLarge,

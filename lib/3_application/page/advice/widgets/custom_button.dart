@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../cubit/advicer_cubit.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key});
@@ -7,9 +10,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return InkResponse(
-      onTap: () {
-        print("button pressed - implement later ");
-      },
+      onTap: () => BlocProvider.of<AdvicerCubit>(context).adviceRequested(),
       child: Material(
         elevation: 20,
         borderRadius: BorderRadius.circular(15),
@@ -18,10 +19,10 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               color: themeData.colorScheme.secondary),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             child: Text(
               "Get Advice",
-              style: themeData.textTheme.headline1,
+              style: themeData.textTheme.displayLarge,
             ),
           ),
         ),
